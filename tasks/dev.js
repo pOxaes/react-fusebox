@@ -1,7 +1,9 @@
-var gulp = require('gulp');
-var fsbx = require('fuse-box');
-var config = require('../config');
-var path = require('path');
+const gulp = require('gulp');
+const fsbx = require('fuse-box');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const eslinter = require('fuse-box-eslint-plugin');
+const config = require('../config');
 
 gulp.task('watch', function() {
     gulp.watch(path.join(config.src, 'templates', '**', '*'), ['templates']);
@@ -17,14 +19,16 @@ gulp.task('fuse', function() {
         },
         plugins: [
             fsbx.BabelPlugin(),
-            // sass
+            eslinter({
+                pattern: /js(x)*$/
+            }),
             [
                 fsbx.SassPlugin({ outputStyle: 'compressed' }),
+                fsbx.PostCSS([autoprefixer]),
                 fsbx.CSSResourcePlugin({ inline: true }),
                 fsbx.CSSPlugin()
             ]
         ]
     });
-
     fuseBox.devServer('>index.jsx', {port: config.port});
 });
