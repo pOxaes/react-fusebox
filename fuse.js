@@ -17,10 +17,12 @@ const FSBX_ENV_CONFIG = {
             outFile: path.join(config.dist, 'sourcemaps.js.map')
         },
         plugins: [
-            fsbx.EnvPlugin({NODE_ENV: 'development'}),
-            eslinter(),
-            fsbx.BabelPlugin(),
-            fsbx.SourceMapPlainJsPlugin(),
+            [
+                fsbx.EnvPlugin({NODE_ENV: 'development'}),
+                eslinter(),
+                fsbx.BabelPlugin(),
+                fsbx.SourceMapPlainJsPlugin()
+            ],
             fsbx.JSONPlugin(),
             [
                 fsbx.SassPlugin(),
@@ -32,9 +34,11 @@ const FSBX_ENV_CONFIG = {
     },
     production: {
         plugins: [
-            fsbx.EnvPlugin({NODE_ENV: 'production'}),
-            fsbx.BabelPlugin(),
-            fsbx.UglifyJSPlugin(),
+            [
+                fsbx.EnvPlugin({NODE_ENV: 'production'}),
+                fsbx.BabelPlugin(),
+                fsbx.UglifyJSPlugin()
+            ],
             fsbx.JSONPlugin(),
             [
                 fsbx.SassPlugin({outputStyle: 'compressed'}),
