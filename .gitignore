@@ -234,7 +234,8 @@ Session.vim
 
 ### Project Specific ###
 .test-cache
-dist
+dist/*
+!dist/index.html
 public
 reporting
 config/stubby.json

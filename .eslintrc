@@ -1,0 +1,25 @@
+extends: "airbnb/base"
+parser: "babel-eslint"
+env:
+  node: true
+  mocha: true
+plugins: ["babel"]
+rules:
+  max-len: [2, 120, 2]
+
+  generator-star-spacing: 0
+  babel/generator-star-spacing: 2
+  new-cap: 0
+  babel/new-cap: [2, {"capIsNewExceptions": ["express.Router"]}]
+  array-bracket-spacing: 0
+  babel/array-bracket-spacing: 2
+  object-curly-spacing: 0
+  babel/object-curly-spacing: 2
+  object-shorthand: 0
+  babel/object-shorthand: 2
+  arrow-parens: 0
+  babel/arrow-parens: 2
+  no-await-in-loop: 0
+  babel/no-await-in-loop: 2
+  indent: [2, 4]
+  import/no-extraneous-dependencies: ["error", {"devDependencies": true}]

@@ -1,30 +1,14 @@
-var yargs = require('yargs');
+const yargs = require('yargs');
 
-var args = yargs.argv;
-var env = args.env || process.env.NODE_ENV || 'development';
-var isDevMode = args._.indexOf('dev') >= 0;
+const DEFAULT_ENV = 'development';
+const args = yargs.argv;
+const env = args.env || process.env.NODE_ENV || DEFAULT_ENV;
 
-var errorHandler = function(err) {
-    console.log(err);
-    this.emit('end');
-};
-
-var config = {
+const config = {
     src: 'src',
     dist: 'dist',
     port: '3001',
-
-    vendors: [
-        'node_modules/react/dist/React.js',
-        'node_modules/react-dom/dist/react-dom.js'
-    ],
-
-    plumberConfig: {
-        errorHandler: function(error) {
-            console.log(error);
-            this.emit('end');
-        }
-    }
+    env,
 };
 
 module.exports = config;
