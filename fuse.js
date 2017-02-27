@@ -3,7 +3,7 @@
 const fsbx = require('fuse-box');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const eslinter = require('fuse-box-eslint-plugin');
+// const eslinter = require('fuse-box-eslint-plugin');
 const config = require('./config');
 
 const FSBX_BASE_CONFIG = {
@@ -19,14 +19,11 @@ const FSBX_ENV_CONFIG = {
         },
         plugins: [
             fsbx.EnvPlugin({NODE_ENV: 'development'}),
-            fsbx.BabelPlugin({
-                config: {
-                    sourceMaps: true,
-                },
-            }),
-            eslinter({
-                pattern: /js(x)*$/,
-            }),
+            fsbx.SourceMapPlainJsPlugin(),
+            fsbx.BabelPlugin(),
+            // eslinter({
+            //     pattern: /js(x)*$/,
+            // }),
             fsbx.JSONPlugin(),
             [
                 fsbx.SassPlugin(),
