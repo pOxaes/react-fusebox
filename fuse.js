@@ -18,8 +18,8 @@ const FSBX_ENV_CONFIG = {
         },
         plugins: [
             fsbx.EnvPlugin({NODE_ENV: 'development'}),
-            fsbx.BabelPlugin(),
             eslinter(),
+            fsbx.BabelPlugin(),
             fsbx.SourceMapPlainJsPlugin(),
             fsbx.JSONPlugin(),
             [
