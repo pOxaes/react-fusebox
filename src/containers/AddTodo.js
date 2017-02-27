@@ -6,7 +6,7 @@ let AddTodo = ({ dispatch }) => {
     let input;
 
     return (
-        <div>
+        <div className="form">
             <form onSubmit={e => {
                 e.preventDefault();
                 if (!input.value.trim()) {

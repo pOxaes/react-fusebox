@@ -1,0 +1,14 @@
+.form {
+    flex: 1 1;
+    border-right: 1px solid #ccc;
+    margin-right: 6px;
+    padding-right: 9px;
+
+    form {
+        display: flex;
+
+        input {
+            flex: 1 1;
+        }
+    }
+}

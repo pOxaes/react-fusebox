@@ -8,7 +8,7 @@ import App from './components/App';
 import './styles/app.scss';
 
 let store = createStore(reducers);
-console.log('restarted!!');
+
 render(
   <Provider store={store}>
     <App />

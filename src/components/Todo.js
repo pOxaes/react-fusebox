@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = ({ onClick, completed, text }) => (
   <li onClick={onClick}
-      className="card"
+      className="todo"
       style={{
           textDecoration: completed ? 'line-through' : 'none'
       }}

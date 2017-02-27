@@ -1,0 +1,19 @@
+.todoList li {
+    background: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
+    padding: 6px;
+    margin-bottom: 6px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul li {
+    list-style: none;
+}

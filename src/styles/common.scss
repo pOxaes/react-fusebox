@@ -1,0 +1,35 @@
+body {
+    background: #eee;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
+    background: #CCC;
+    border-radius: 3px;
+    margin-left: 3px;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:hover,
+    &:focus {
+        color: #FFF;
+        background: #777;
+    }
+}
+
+button.active {
+    background: blue;
+    color: #FFF;
+    cursor: default;
+}
+
+button,
+input {
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+}
