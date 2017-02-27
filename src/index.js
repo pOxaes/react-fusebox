@@ -14,6 +14,6 @@ render(
     <App />
   </Provider>,
   document.getElementById('root')
-)
+);
 
 setStatefulModules('hmr', 'store/', 'actions/', 'reducers', 'index');

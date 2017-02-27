@@ -4,7 +4,7 @@ import visibilityFilter from './visibilityFilter';
 
 const reducers = combineReducers({
     todos,
-    visibilityFilter,
+    visibilityFilter
 });
 
 export default reducers;

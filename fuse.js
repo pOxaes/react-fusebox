@@ -1,37 +1,33 @@
-/* eslint-disable babel/new-cap */
-
 const fsbx = require('fuse-box');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-// const eslinter = require('fuse-box-eslint-plugin');
+const eslinter = require('fuse-box-eslint-plugin');
 const config = require('./config');
 
 const FSBX_BASE_CONFIG = {
     homeDir: config.src,
-    outFile: path.join(config.dist, 'app.js'),
+    outFile: path.join(config.dist, 'app.js')
 };
 
 const FSBX_ENV_CONFIG = {
     development: {
         sourceMap: {
             bundleReference: 'sourcemaps.js.map',
-            outFile: path.join(config.dist, 'sourcemaps.js.map'),
+            outFile: path.join(config.dist, 'sourcemaps.js.map')
         },
         plugins: [
             fsbx.EnvPlugin({NODE_ENV: 'development'}),
-            fsbx.SourceMapPlainJsPlugin(),
             fsbx.BabelPlugin(),
-            // eslinter({
-            //     pattern: /js(x)*$/,
-            // }),
+            eslinter(),
+            fsbx.SourceMapPlainJsPlugin(),
             fsbx.JSONPlugin(),
             [
                 fsbx.SassPlugin(),
                 fsbx.PostCSS([autoprefixer]),
                 fsbx.CSSResourcePlugin({inline: true}),
-                fsbx.CSSPlugin(),
-            ],
-        ],
+                fsbx.CSSPlugin()
+            ]
+        ]
     },
     production: {
         plugins: [
@@ -43,13 +39,11 @@ const FSBX_ENV_CONFIG = {
                 fsbx.SassPlugin({outputStyle: 'compressed'}),
                 fsbx.PostCSS([autoprefixer]),
                 fsbx.CSSResourcePlugin({inline: true}),
-                fsbx.CSSPlugin(),
-            ],
-        ],
-    },
+                fsbx.CSSPlugin()
+            ]
+        ]
+    }
 };
 
 const fuseBox = new fsbx.FuseBox(Object.assign(FSBX_BASE_CONFIG, FSBX_ENV_CONFIG[config.env]));
 fuseBox.devServer('>index.js', {port: config.port});
-
-/* eslint-enable babel/new-cap */

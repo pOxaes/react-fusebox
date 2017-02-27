@@ -1,3 +1,4 @@
+/* eslint-disable no-process-env */
 const yargs = require('yargs');
 
 const DEFAULT_ENV = 'development';
@@ -8,7 +9,8 @@ const config = {
     src: 'src',
     dist: 'dist',
     port: '3001',
-    env,
+    env
 };
 
 module.exports = config;
+/* eslint-enable no-process-env */
