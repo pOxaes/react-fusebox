@@ -8,7 +8,7 @@ import App from './components/App';
 import './styles/app.scss';
 
 let store = createStore(reducers);
-
+console.log('restarted!!');
 render(
   <Provider store={store}>
     <App />
@@ -16,4 +16,4 @@ render(
   document.getElementById('root')
 );
 
-setStatefulModules('hmr', 'actions/', 'reducers', 'index');
+setStatefulModules('hmr', 'actions/', 'reducers');

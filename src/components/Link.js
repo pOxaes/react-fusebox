@@ -10,9 +10,8 @@ const Link = ({ active, children, onClick }) => {
            onClick={e => {
                e.preventDefault();
                onClick();
-           }}
-        >
-            {children}
+           }}>
+           {children}
         </button>
     );
 };

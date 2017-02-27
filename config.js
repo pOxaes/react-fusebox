@@ -9,7 +9,12 @@ const config = {
     src: 'src',
     dist: 'dist',
     port: '3001',
-    env
+    env,
+    vendors: [
+        'react',
+        'react-dom',
+        'react-redux'
+    ]
 };
 
 module.exports = config;

@@ -3,6 +3,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const eslinter = require('fuse-box-eslint-plugin');
 const config = require('./config');
+const del = require('del');
 
 const FSBX_BASE_CONFIG = {
     homeDir: config.src,
@@ -45,5 +46,21 @@ const FSBX_ENV_CONFIG = {
     }
 };
 
-const fuseBox = new fsbx.FuseBox(Object.assign(FSBX_BASE_CONFIG, FSBX_ENV_CONFIG[config.env]));
-fuseBox.devServer('>index.js', {port: config.port});
+const fsbxConf = Object.assign(FSBX_BASE_CONFIG, FSBX_ENV_CONFIG[config.env]);
+
+del.sync([
+    path.join(config.dist, '**'),
+    '!' + config.dist,
+    '!' + path.join(config.dist, 'index.html')
+]);
+
+// bundle vendor
+fsbx.FuseBox.init({
+    homeDir: config.src,
+    log: false
+}).bundle({
+    [path.join(config.dist, 'vendor.js')]: config.vendors.join(' +')
+});
+
+fsbx.FuseBox.init(fsbxConf)
+    .devServer('>index.js', {port: config.port, root: config.dist});
