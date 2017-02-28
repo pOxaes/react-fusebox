@@ -1,0 +1,27 @@
+.articles {
+    padding: 0 6px;
+}
+
+.article {
+    background-color: #FFF;
+    box-shadow: 1px 1px 3px lighten($color-main, 42);
+    margin-bottom: 6px;
+
+    h2 {
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    footer {
+        border-top: 1px solid $color-border;
+        padding: 6px;
+        text-align: right;
+    }
+
+    &_content {
+        padding: 6px;
+    }
+}

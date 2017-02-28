@@ -1,22 +1,29 @@
 body {
-    background: #eee;
+    background-color: lighten($color-main, 47);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $color-main;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
 button {
+    transition: background-color .3s ease-out;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border: none;
-    background: #CCC;
+    background: $button-color;
+    color: #FFF;
     border-radius: 3px;
-    margin-left: 3px;
     cursor: pointer;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 6px;
 
     &:hover,
     &:focus {
-        color: #FFF;
-        background: #777;
+        background-color: lighten($button-color, 10);
     }
 }
 
@@ -27,9 +34,21 @@ button.active {
 }
 
 button,
-input {
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
+textarea,
+input{
     box-sizing: border-box;
+}
+
+textarea,
+input {
+    padding: 6px;
+    color: $color-main;
+}
+
+textarea,
+input {
+    box-shadow: 1px 1px 3px 0 rgba($color-main, 0.2) inset;
+    border: 1px solid $color-border;
+    resize: none;
+    margin-bottom: 6px;
 }

@@ -1,1 +1,8 @@
+@import 'node_modules/reset-css/_reset';
+
+@import 'common/variables';
 @import 'common/common';
+
+@import 'components/add-article';
+@import 'components/articles';
+@import 'components/header';
