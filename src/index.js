@@ -1,19 +1,25 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {setStatefulModules} from './hmr';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import reducers from './reducers';
+import reducers from './reducers/articles';
 import App from './components/App';
+import {setStatefulModules} from './hmr';
 import './styles/app.scss';
+
+const container = document.getElementById('root');
 
 let store = createStore(reducers);
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+const renderApp = (appStore) => {
+    render(
+        <Provider store={appStore}>
+            <App />
+        </Provider>,
+        container
+    );
+};
 
-setStatefulModules('hmr', 'actions/', 'reducers');
+setStatefulModules(renderApp, store, 'hmr', 'actions/', 'reducers/');
+
+renderApp(store);
